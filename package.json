@@ -1,0 +1,20 @@
+{
+  "name": "pb-node",
+  "version": "0.0.1",
+  "description": "Pandorabots API Module",
+
+  "homepage": "https://github.com/pandorabots/pb-node/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pandorabots/pb-node.git"
+  },
+  "main": "./lib/pandorabots.js",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1"
+  },
+  "dependencies": {
+    "request": "2.37.0"
+  },
+  "author": ["DJF <daniel.fried@pandorabots.com>"]
+}
