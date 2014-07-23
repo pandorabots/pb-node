@@ -15,7 +15,7 @@
   "files": [
     "pandorabots.js"
   ],
-  "main": "pandorabots.js",
+  "main": "pb-node.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/pandorabots/pb-node.git"
