@@ -13,7 +13,7 @@
   },
   "license": "BSD",
   "files": [],
-  "main": "./lib/pandorabots.js",
+  "main": "pandorabots.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/pandorabots/pb-node.git"
