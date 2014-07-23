@@ -27,7 +27,7 @@ var options = {
 Create a bot
 ------------
 
-```
+```javascript
 pb.createBot(options, function(error, response, body) {
   if (error) {
     console.log(error);
@@ -40,7 +40,7 @@ pb.createBot(options, function(error, response, body) {
 Upload a file
 -------------
 
-```
+```javascript
 options.filetype = FILE_TYPE;
 options.filepath = PATH_TO_FILE;
 options.filename = NAME_OF_FILE;
@@ -57,7 +57,7 @@ pb.uploadFile(options, function(error, response, body) {
 Compile a bot
 -------------
 
-```
+```javascript
 pb.compileBot(options, function(error, response, body) {
   if (error) {
     console.log(error);
@@ -70,7 +70,7 @@ pb.compileBot(options, function(error, response, body) {
 Talk to a bot
 -------------
 
-```
+```javascript
 options.q.input = process.argv[2];
 
 pb.talk(options, function(error, response, body) {
@@ -85,7 +85,7 @@ pb.talk(options, function(error, response, body) {
 Delete a bot
 ------------
 
-```
+```javascript
 pb.deleteBot(options, function(error, response, body) {
   if (error) {
     console.log(error);
