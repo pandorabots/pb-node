@@ -6,13 +6,17 @@ Pandorabots API module for Node.js. Please read the [documentation](http://devel
 Installation
 ------------
 
+```
+npm install pb-node
+```
+
 Setup
 -----
 
 Require pb-node and declare your options:
 
 ```javascript
-var pb = require('../lib/pandorabots.js');
+var pb = require('pb-node');
 
 var options = {
   host: 'aiaas.pandorabots.com',
