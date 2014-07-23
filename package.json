@@ -12,7 +12,9 @@
     "url": "http://github.com/pandorabots/pb-node/issues"
   },
   "license": "BSD",
-  "files": [],
+  "files": [
+    "pandorabots.js"
+  ],
   "main": "pandorabots.js",
   "repository": {
     "type": "git",
