@@ -71,7 +71,7 @@ Talk to a bot
 -------------
 
 ```javascript
-options.q.input = process.argv[2];
+options.q.input = YOUR_INPUT;
 
 pb.talk(options, function(error, response, body) {
   if (error) {
