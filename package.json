@@ -20,11 +20,6 @@
     "type": "git",
     "url": "http://github.com/pandorabots/pb-node.git"
   },
-  "main": "./lib/pandorabots.js",
-  "engines": {
-    "node": "0.10.x",
-    "npm": "1.x"
-  },
   "dependencies": {
     "request": "2.37.0"
   },
