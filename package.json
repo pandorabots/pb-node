@@ -1,6 +1,6 @@
 {
   "name": "pb-node",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Pandorabots API Module",
   "keywords": [
     "Pandorabots",
@@ -13,9 +13,9 @@
   },
   "license": "BSD",
   "files": [
-    "pb-node.js"
+    "./lib/pb-node.js"
   ],
-  "main": "pb-node.js",
+  "main": "./lib/pb-node.js",
   "repository": {
     "type": "git",
     "url": "http://github.com/pandorabots/pb-node.git"
