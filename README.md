@@ -76,6 +76,8 @@ Talk to a bot
 
 ```javascript
 options.q.input = YOUR_INPUT;
+// Pass in client_name if your application manages ids for end users
+// options.q.client_name = CLIENT_NAME
 
 pb.talk(options, function(error, response, body) {
   if (error) {
