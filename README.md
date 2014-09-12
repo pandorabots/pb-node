@@ -3,6 +3,8 @@ pb-node
 
 Pandorabots API module for Node.js. Please read the [documentation](http://developer.pandorabots.com/docs).
 
+You will need both a `user_key` and `app_id`, which you can register for at the [Pandorabots Developer Portal](http://developer.pandorabots.com).
+
 Installation
 ------------
 
@@ -20,7 +22,7 @@ var pb = require('pb-node');
 
 var options = {
   host: 'aiaas.pandorabots.com',
-  username: YOUR_USERNAME,
+  app_id: YOUR_APP_ID,
   botname: YOUR_BOTNAME,
   q: {
     user_key: YOUR_USER_KEY
