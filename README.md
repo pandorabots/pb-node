@@ -1,7 +1,7 @@
 pb-node
 =======
 
-Pandorabots API module for Node.js. Please read the [documentation](http://developer.pandorabots.com/docs).
+Pandorabots API module for Node.js. Please read the [documentation](http://developer.pandorabots.com/docs) for further information regarding naming conventions and file types.
 
 You will need both a `user_key` and `app_id`, which you can register for at the [Pandorabots Developer Portal](http://developer.pandorabots.com).
 
@@ -34,29 +34,26 @@ Create a bot
 ------------
 
 ```javascript
-pb.createBot(options, function(error, response, body) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);  
-  }
+pb.createBot(options, function(data) {
+  console.log(data);
 });
 ```
 
-Upload a file
+List all bots
 -------------
 
 ```javascript
-options.filetype = FILE_TYPE;
-options.filepath = PATH_TO_FILE;
-options.filename = NAME_OF_FILE;
+pb.listBots(options, function(data) {
+  console.log(data);
+});
+```
 
-pb.uploadFile(options, function(error, response, body) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);  
-  }
+Delete a bot
+------------
+
+```javascript
+pb.deleteBot(options, function(data) {
+  console.log(data);
 });
 ```
 
@@ -73,6 +70,41 @@ pb.compileBot(options, function(error, response, body) {
 });
 ```
 
+Upload a file
+-------------
+
+```javascript
+options.filetype = FILE_TYPE;
+options.filepath = PATH_TO_FILE;
+options.filename = NAME_OF_FILE;
+
+pb.uploadFile(options, function(data) {
+  console.log(data);
+});
+```
+
+List all files
+--------------
+
+```javascript
+pb.listFiles(options, function(data) {
+  console.log(data);
+});
+```
+
+Delete a file
+-------------
+
+```javascript
+options.filetype = FILE_TYPE;
+options.filepath = PATH_TO_FILE;
+options.filename = NAME_OF_FILE;
+
+pb.deleteFile(options, function(data) {
+  console.log(data);
+});
+```
+
 Talk to a bot
 -------------
 
@@ -82,19 +114,6 @@ options.q.input = YOUR_INPUT;
 // options.q.client_name = CLIENT_NAME
 
 pb.talk(options, function(error, response, body) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);
-  }
-});
-```
-
-Delete a bot
-------------
-
-```javascript
-pb.deleteBot(options, function(error, response, body) {
   if (error) {
     console.log(error);
   } else {
