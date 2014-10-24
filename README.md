@@ -61,12 +61,8 @@ Compile a bot
 -------------
 
 ```javascript
-pb.compileBot(options, function(error, response, body) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);
-  }
+pb.compileBot(options, function(data) {
+  console.log(data);
 });
 ```
 
@@ -113,12 +109,8 @@ options.q.input = YOUR_INPUT;
 // Pass in client_name if your application manages ids for end users
 // options.q.client_name = CLIENT_NAME
 
-pb.talk(options, function(error, response, body) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log(body);
-  }
+pb.talk(options, function(data) {
+  console.log(data);
 });
 ```
 
