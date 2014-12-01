@@ -88,6 +88,16 @@ pb.listFiles(options, function(data) {
 });
 ```
 
+Alternatively, you can use this API to return a ZIP archive of all of your bot's files. 
+
+```javascript
+options.q.return = true;
+options.filename = FILENAME_TO_BE_WRITTEN;
+pb.listFiles(options, function(data) {
+  console.log(data);
+});
+```
+
 Delete a file
 -------------
 
