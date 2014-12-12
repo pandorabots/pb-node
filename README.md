@@ -104,20 +104,6 @@ pb.listFiles(options, function(message) {
 });
 ```
 
-Get a single file
------------------
-
-```javascript
-options.filetype = FILE_TYPE;
-options.filepath = PATH_TO_FILE;
-options.filename = NAME_OF_FILE;
-
-pb.getFile(options, function(error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
-});
-```
-
 Delete a file
 -------------
 

@@ -65,6 +65,22 @@ module.exports = {
     }
   },
 
+  getFile: function(options, callback) {
+    if (options.filename) {
+      var path = '/bot/' + options.app_id + '/' + options.botname + '/' + options.filetype + '/' + options.filename + '?';
+    } else {
+      var path = '/bot/' + options.app_id + '/' + options.botname + '/' + options.filetype + '?';
+    }
+    var qs = querystring.stringify(options.q);
+    var params = {
+      url: protocol + '://' + options.host + path + qs
+    };
+    request.get(params, function(error, response, body) {
+      if (!error)
+        callback(error, response, body);
+    });
+  },
+
   uploadFile: function(options, callback) {
     if (options.filename) {
       var path = '/bot/' + options.app_id + '/' + options.botname + '/' + options.filetype + '/' + options.filename + '?';
