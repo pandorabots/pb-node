@@ -1,134 +1,135 @@
-pb-node
-=======
+# pb-node
 
 Pandorabots API module for Node.js. Please read the [documentation](http://developer.pandorabots.com/docs) for further information regarding naming conventions and file types.
 
 You will need both a `user_key` and `app_id`, which you can register for at the [Pandorabots Developer Portal](http://developer.pandorabots.com).
 
-Installation
-------------
+## Installation
 
 ```
 npm install pb-node
 ```
 
-Setup
------
+## Usage
 
-Require pb-node and declare your options:
+```
+var Pandorabot = require('pb-node'),
 
-```javascript
-var pb = require('pb-node');
-
-var options = {
+var botOptions = {
   host: 'aiaas.pandorabots.com',
-  app_id: YOUR_APP_ID,
-  botname: YOUR_BOTNAME,
-  q: {
-    user_key: YOUR_USER_KEY
-  }
+  app_id: **************,
+  user_key: ************,
+  botname: *************
+};
+
+var pb = new Pandorabot(botOptions);
+```
+
+## Methods
+
+### List all bots
+
+```
+pb.listBots(function (error, response, body) {
+  if (!error && response.statusCode === 200)
+    console.log(body);
+});
+```
+
+### Create a bot
+
+```
+pb.createBot(function (error, response, body) {
+  if (!error && response.statusCode === 200)
+    console.log(body);
+});
+```
+
+### Delete a bot
+
+```
+pb.deleteBot(function (error, response, body) {
+  if (!error && response.statusCode === 200)
+    console.log(body);
+});
+```
+
+### Upload a file
+
+```
+var params = {
+  filename: NAME_OF_FILE,
+  filetype: TYPE_OF_FILE,
+  filepath: PATH_TO_FILE
+};
+
+pb.uploadFile(params, function (error, response, body) {
+  if (!error && response.statusCode === 200)
+    console.log(body);
+});
+```
+
+### Delete a file
+
+```
+var params = {
+  filename: NAME_OF_FILE,
+  filetype: TYPE_OF_FILE
 }
-```
 
-Create a bot
-------------
-
-```javascript
-pb.createBot(options, function(error, response, body) {
+pb.deleteFile(params, function (error, response, body) {
   if (!error && response.statusCode === 200)
     console.log(body);
 });
 ```
 
-List all bots
--------------
+### List or download all files 
 
-```javascript
-pb.listBots(options, function(error, response, body) {
-  if (!error && response,statusCode === 200)
-    console.log(body);
-});
 ```
-
-Delete a bot
-------------
-
-```javascript
-pb.deleteBot(options, function(error, response, body) {
-  if (!error && response.statusCode === 200)  
-    console.log(body);
-});
-```
-
-Compile a bot
--------------
-
-```javascript
-pb.compileBot(options, function(error, response, body) {
-  if (!error && response,statusCode === 200)
-    console.log(body);
-});
-```
-
-Upload a file
--------------
-
-```javascript
-options.filetype = FILE_TYPE;
-options.filepath = PATH_TO_FILE;
-options.filename = NAME_OF_FILE;
-
-pb.uploadFile(options, function(error, response, body) {
-  if (!error && response.statusCode === 200)  
-    console.log(body);
-});
-```
-
-List all files
---------------
-
-```javascript
-pb.listFiles(options, function(error, response, body) {
+pb.listFiles(function (error, response, body) {
   if (!error && response.statusCode === 200)
     console.log(body);
 });
 ```
 
-Alternatively, you can use this API to return a ZIP archive of all of your bot's files. 
+You can download your bot's files as a .zip by passing in the optional parameters:
 
-```javascript
-options.q.return = true;
-options.filename = FILENAME_TO_BE_WRITTEN;
-pb.listFiles(options, function(message) {
+```
+var params = {
+  return: 'zip',
+  filename: NAME_OF_FILE_TO_WRITE
+}
+
+pb.listFiles(params, function (message) {
   console.log(message);
 });
 ```
 
-Delete a file
--------------
+### Compile a bot
 
-```javascript
-options.filetype = FILE_TYPE;
-options.filepath = PATH_TO_FILE;
-options.filename = NAME_OF_FILE;
-
-pb.deleteFile(options, function(error, response, body) {
+```
+pb.compileBot(function (error, response, body) {
   if (!error && response.statusCode === 200)
     console.log(body);
 });
 ```
 
-Talk to a bot
--------------
+### Talk to a bot
 
-```javascript
-options.q.input = YOUR_INPUT;
-// Pass in client_name if your application manages ids for end users
-// options.q.client_name = CLIENT_NAME
+The `input` param is required. All other params are optional:
 
-pb.talk(options, function(error, response, body) {
+```
+var params = {
+  client_name: YOUR_CLIENT_NAME,
+  sessionid: YOUR_SESSION_ID,
+  input: YOUR_INPUT,
+  extra: BOOLEAN,
+  trace: BOOLEAN,
+  recent: BOOLEAN
+}
+
+pb.talk(params, function (error, response, body) {
   if (!error && response.statusCode === 200)
     console.log(body);
 });
 ```
-
