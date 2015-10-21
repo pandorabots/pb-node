@@ -1,3 +1,6 @@
+> Note: breaking changes have been introduced in v2.0.0. If you want to old
+version, you can still install v1.0.1 from NPM.
+
 # pb-node
 
 Pandorabots API module for Node.js. Please read the [documentation](http://developer.pandorabots.com/docs) for further information regarding naming conventions and file types.
@@ -15,14 +18,14 @@ npm install pb-node
 ```
 var Pandorabot = require('pb-node'),
 
-var botOptions = {
-  host: 'aiaas.pandorabots.com',
+var options = {
+  url: 'https://aiaas.pandorabots.com',
   app_id: **************,
   user_key: ************,
   botname: *************
 };
 
-var pb = new Pandorabot(botOptions);
+var bot = new Pandorabot(options);
 ```
 
 ## Methods
@@ -30,96 +33,77 @@ var pb = new Pandorabot(botOptions);
 ### List all bots
 
 ```
-pb.listBots(function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.list(function(err, res) {
+  if (!err) console.log(res);
 });
 ```
 
 ### Create a bot
 
 ```
-pb.createBot(function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.create(function(err, res) {
+  if (!err) console.log(res);
 });
 ```
 
 ### Delete a bot
 
 ```
-pb.deleteBot(function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.delete(function(err, res) {
+  if (!err) console.log(body);
 });
 ```
 
 ### Upload a file
 
 ```
-var params = {
-  filename: NAME_OF_FILE,
-  filetype: TYPE_OF_FILE,
-  filepath: PATH_TO_FILE
-};
+var file = './example.aiml';
 
-pb.uploadFile(params, function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.upload(file, function(err, res) {
+  if (!err) console.log(body);
 });
 ```
 
-### Delete a file
+### Remove a file
 
 ```
-var params = {
-  filename: NAME_OF_FILE,
-  filetype: TYPE_OF_FILE
-}
+var file = 'example.aiml';
 
-pb.deleteFile(params, function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.remove(file, function(err, res) {
+  if (!err) console.log(body);
 });
 ```
 
-### List or download all files 
+### Get a bot
 
 ```
-pb.listFiles(function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.get(function(err, res) {
+  if (!err) console.log(body);
 });
 ```
 
-You can download your bot's files as a .zip by passing in the optional parameters:
+You can download your bot's files as a .zip by passing `true` as the first parameter:
 
 ```
-var params = {
-  return: 'zip',
-  filename: NAME_OF_FILE_TO_WRITE
-}
-
-pb.listFiles(params, function (message) {
-  console.log(message);
+bot.get(true, function(err, message) {
+  if (!err) console.log(message);
 });
 ```
 
 ### Compile a bot
 
 ```
-pb.compileBot(function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.compile(function(err, res) {
+  if (!err) console.log(res);
 });
 ```
 
-### Talk to a bot
+### Talk
 
-The `input` param is required. All other params are optional:
+The `input` parameter is required. All others are optional:
 
 ```
-var params = {
+var talkParams = {
   client_name: YOUR_CLIENT_NAME,
   sessionid: YOUR_SESSION_ID,
   input: YOUR_INPUT,
@@ -128,8 +112,33 @@ var params = {
   recent: BOOLEAN
 }
 
-pb.talk(params, function (error, response, body) {
+bot.talk(params, function (error, response, body) {
   if (!error && response.statusCode === 200)
     console.log(body);
 });
+```
+
+### Anonymous talk
+
+Use this API to create a new `client_name`. Then, store this value and pass it in
+to future talk requests:
+
+```
+bot.atalk({ input: 'hello' }, function(err, res) {
+  if (!err) {
+    // res.client_name is a new UID!
+  }
+});
+```
+
+## Development
+
+```
+$ npm install --development
+```
+
+Run tests with mocha:
+
+```
+$ npm test
 ```
