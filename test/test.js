@@ -354,7 +354,7 @@ describe('class: Pandorabot', function() {
       });
     });
 
-    describe('prototype.file', function() {
+    describe('prototype.getFile', function() {
       it('retrieves an aiml file', function(done) {
         var client = new Pandorabot(options);
 
@@ -367,6 +367,7 @@ describe('class: Pandorabot', function() {
 
         client.getFile(file, function(err, res) {
           if (err) throw err;
+          console.log(res);
           expect(res.status).to.equal('ok');
           done();
         });

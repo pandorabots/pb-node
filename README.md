@@ -50,7 +50,7 @@ bot.create(function(err, res) {
 
 ```
 bot.delete(function(err, res) {
-  if (!err) console.log(body);
+  if (!err) console.log(res);
 });
 ```
 
@@ -60,7 +60,17 @@ bot.delete(function(err, res) {
 var file = './example.aiml';
 
 bot.upload(file, function(err, res) {
-  if (!err) console.log(body);
+  if (!err) console.log(res);
+});
+```
+
+### Get a file
+
+```
+var file = 'example.aiml';
+
+bot.getFile(file, function(err, file) {
+  if (!err) console.log(file);
 });
 ```
 
@@ -70,7 +80,7 @@ bot.upload(file, function(err, res) {
 var file = 'example.aiml';
 
 bot.remove(file, function(err, res) {
-  if (!err) console.log(body);
+  if (!err) console.log(res);
 });
 ```
 
@@ -78,15 +88,15 @@ bot.remove(file, function(err, res) {
 
 ```
 bot.get(function(err, res) {
-  if (!err) console.log(body);
+  if (!err) console.log(res);
 });
 ```
 
 You can download your bot's files as a .zip by passing `true` as the first parameter:
 
 ```
-bot.get(true, function(err, message) {
-  if (!err) console.log(message);
+bot.get(true, function(err, res) {
+  if (!err) console.log(res);
 });
 ```
 
@@ -112,9 +122,8 @@ var talkParams = {
   recent: BOOLEAN
 }
 
-bot.talk(params, function (error, response, body) {
-  if (!error && response.statusCode === 200)
-    console.log(body);
+bot.talk(talkParams, function (err, res) {
+  if (!err) console.log(res);
 });
 ```
 
@@ -125,9 +134,7 @@ to future talk requests:
 
 ```
 bot.atalk({ input: 'hello' }, function(err, res) {
-  if (!err) {
-    // res.client_name is a new UID!
-  }
+  if (!err) console.log(res);
 });
 ```
 
