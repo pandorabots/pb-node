@@ -16,7 +16,7 @@ npm install pb-node
 ## Usage
 
 ```
-var Pandorabot = require('pb-node'),
+var Pandorabot = require('pb-node');
 
 var options = {
   url: 'https://aiaas.pandorabots.com',
