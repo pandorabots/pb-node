@@ -10,7 +10,7 @@ You will need both a `user_key` and `app_id`, which you can register for at the 
 ## Installation
 
 ```
-npm install pb-node
+$ npm install pb-node
 ```
 
 ## Usage
