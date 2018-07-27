@@ -5,7 +5,7 @@ version, you can still install v1.0.1 from NPM.
 
 Pandorabots API module for Node.js. Please read the [documentation](http://developer.pandorabots.com/docs) for further information regarding naming conventions and file types.
 
-You will need both a `user_key` and `app_id`, which you can register for at the [Pandorabots Developer Portal](http://developer.pandorabots.com).
+You will need both a `user_key` and `app_id`, which you can get from your account on our legacy [AIAAS developer portal](https://developer.pandorabots.com/), or sign up as a Premium user on our [Pandorabots platform](https://www.pandorabots.com).
 
 ## Installation
 
@@ -19,7 +19,7 @@ $ npm install pb-node
 var Pandorabot = require('pb-node');
 
 var options = {
-  url: 'https://aiaas.pandorabots.com',
+  url: '{hostname: https://aiaas.pandorabots.com | https://api.pandorabots.com}',
   app_id: **************,
   user_key: ************,
   botname: *************
